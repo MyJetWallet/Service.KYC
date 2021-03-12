@@ -50,7 +50,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
         path: ./publish-api
         registry: docker.pkg.github.com
-        repository: ${{ secrets.ORG_NAME }}/service.service.kyc/myjetwallet.service.service.kyc-test
+        repository: ${{ secrets.ORG_NAME }}/service.kyc/myjetwallet.service.kyc-test
         tags: latest
         build_args: app_version=myjetwallet.service.service.kyc-test:latest,app_compilation_date=${{ steps.current-time.outputs.formattedTime }}
 
