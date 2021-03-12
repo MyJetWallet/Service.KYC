@@ -26,7 +26,7 @@ namespace Service.Service.KYC
     public class Startup
     {
         private readonly MyNoSqlTcpClient _myNoSqlClient;
-        // private readonly MyServiceBusTcpClient _serviceBusClient;
+        private readonly MyServiceBusTcpClient _serviceBusClient;
 
         public Startup()
         {
@@ -35,8 +35,8 @@ namespace Service.Service.KYC
                 ApplicationEnvironment.HostName ??
                 $"{ApplicationEnvironment.AppName}:{ApplicationEnvironment.AppVersion}");
 
-            // _serviceBusClient = new MyServiceBusTcpClient(Program.ReloadedSettings(model => model.ServiceBusUrl),
-            //     ApplicationEnvironment.HostName);
+            _serviceBusClient = new MyServiceBusTcpClient(Program.ReloadedSettings(model => model.ServiceBusUrl),
+                ApplicationEnvironment.HostName);
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -80,7 +80,7 @@ namespace Service.Service.KYC
             });
 
             _myNoSqlClient.Start();
-            // _serviceBusClient.Start();
+            _serviceBusClient.Start();
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
@@ -89,7 +89,7 @@ namespace Service.Service.KYC
             builder.RegisterModule<ServiceModule>();
             builder.RegisterModule<ClientsModule>();
             builder.RegisterModule(new MyNoSqlModule(() => GetSettings().MyNoSqlWriterUrl));
-            // builder.RegisterModule(new ServiceBusModule(_serviceBusClient));
+            builder.RegisterModule(new ServiceBusModule(_serviceBusClient));
         }
 
         private SettingsModel GetSettings()

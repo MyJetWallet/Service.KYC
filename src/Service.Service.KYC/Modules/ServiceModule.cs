@@ -13,10 +13,10 @@ namespace Service.Service.KYC.Modules
                 .As<IKycStatusService>()
                 .SingleInstance();
 
-            // builder
-            //     .RegisterType<KycStatusChangeJob>()
-            //     .AutoActivate()
-            //     .SingleInstance();
+            builder
+                .RegisterType<KycStatusChangeJob>()
+                .AutoActivate()
+                .SingleInstance();
         }
     }
 }
