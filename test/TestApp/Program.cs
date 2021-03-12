@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using ProtoBuf.Grpc.Client;
-using Service.Service.KYC.Client;
-using Service.Service.KYC.Grpc.Models;
 
 namespace TestApp
 {
@@ -14,13 +12,6 @@ namespace TestApp
 
             Console.Write("Press enter to start");
             Console.ReadLine();
-
-
-            var factory = new Service.KYCClientFactory("http://localhost:5001");
-            var client = factory.GetHelloService();
-
-            var resp = await  client.SayHelloAsync(new HelloRequest(){Name = "Alex"});
-            Console.WriteLine(resp?.Message);
 
             Console.WriteLine("End");
             Console.ReadLine();

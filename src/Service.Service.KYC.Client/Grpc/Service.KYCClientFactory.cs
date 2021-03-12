@@ -10,17 +10,17 @@ using Service.Service.KYC.Grpc;
 namespace Service.Service.KYC.Client
 {
     [UsedImplicitly]
-    public class Service.KYCClientFactory
+    public class KYCClientFactory
     {
         private readonly CallInvoker _channel;
 
-        public Service.KYCClientFactory(string assetsDictionaryGrpcServiceUrl)
+        public KYCClientFactory(string assetsDictionaryGrpcServiceUrl)
         {
             AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
             var channel = GrpcChannel.ForAddress(assetsDictionaryGrpcServiceUrl);
             _channel = channel.Intercept(new PrometheusMetricsInterceptor());
         }
 
-        public IHelloService GetHelloService() => _channel.CreateGrpcService<IHelloService>();
+        public IKycStatusService GetKycStatusService() => _channel.CreateGrpcService<IKycStatusService>();
     }
 }

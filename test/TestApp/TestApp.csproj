@@ -8,6 +8,7 @@
   <ItemGroup>
     <PackageReference Include="Grpc.Net.Client" Version="2.35.0" />
     <PackageReference Include="protobuf-net.Grpc" Version="1.0.147" />
+    <PackageReference Include="SimpleTrading.PersonalData.Grpc" Version="1.0.37" />
   </ItemGroup>
 
   <ItemGroup>

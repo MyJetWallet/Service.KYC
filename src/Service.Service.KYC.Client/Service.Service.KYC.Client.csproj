@@ -7,13 +7,17 @@
   <ItemGroup>
     <ProjectReference PrivateAssets="All" Include="..\Service.Service.KYC.Domain.Models\Service.Service.KYC.Domain.Models.csproj" />
     <ProjectReference PrivateAssets="All" Include="..\Service.Service.KYC.Grpc\Service.Service.KYC.Grpc.csproj" />
+    <ProjectReference Include="..\Service.Service.KYC.MyNoSql\Service.Service.KYC.MyNoSql.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.1.0" />
     <PackageReference Include="Grpc.Core.Api" Version="2.36.0" />
     <PackageReference Include="JetBrains.Annotations" Version="2020.3.0" />
     <PackageReference Include="Grpc.Net.Client" Version="2.35.0" />
     <PackageReference Include="MyJetWallet.Sdk.GrpcMetrics" Version="1.0.0" />
+    <PackageReference Include="MyNoSqlServer.DataReader" Version="1.3.1" />
+    <PackageReference Include="SimpleTrading.PersonalData.Grpc" Version="1.0.37" />
     <PackageReference Include="System.ServiceModel.Primitives" Version="4.8.1" />
     <PackageReference Include="protobuf-net.Grpc" Version="1.0.147" />
   </ItemGroup>

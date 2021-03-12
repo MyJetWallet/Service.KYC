@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
-using System;
+﻿using System;
 using System.Net;
 using Autofac.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MyJetWallet.Sdk.Service;
 using Service.Service.KYC.Settings;
@@ -36,7 +36,7 @@ namespace Service.Service.KYC
 
             Settings = SettingsReader.ReadSettings<SettingsModel>(SettingsFileName);
 
-            using var loggerFactory = LogConfigurator.Configure("MyJetWallet", Settings.SeqServiceUrl);
+            using var loggerFactory = LogConfigurator.Configure("MyJetWallet", null);
 
             var logger = loggerFactory.CreateLogger<Program>();
 

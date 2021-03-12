@@ -2,8 +2,8 @@
 
 namespace Service.Service.KYC.Domain.Models
 {
-    public interface IHelloMessage
+    public interface IKycStatusRequest
     {
-        string Message { get; set; }
+        string UserId { get; set; }
     }
 }

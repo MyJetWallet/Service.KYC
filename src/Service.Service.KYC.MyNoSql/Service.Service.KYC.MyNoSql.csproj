@@ -1,12 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SimpleTrading.PersonalData.Grpc" Version="1.0.37" />
-    <PackageReference Include="System.ServiceModel.Primitives" Version="4.8.1" />
+    <PackageReference Include="MyNoSqlServer.DataWriter" Version="1.2.23" />
   </ItemGroup>
 
   <ItemGroup>
