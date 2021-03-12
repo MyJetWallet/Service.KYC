@@ -10,11 +10,11 @@ using SimpleTrading.PersonalData.Grpc;
 namespace Service.Service.KYC.Grpc
 {
     [UsedImplicitly]
-    public class PersonalDataFactory
+    public class PersonalDataClientFactory
     {
         private readonly CallInvoker _channel;
 
-        public PersonalDataFactory(string personalDataGrpcServiceUrl)
+        public PersonalDataClientFactory(string personalDataGrpcServiceUrl)
         {
             AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
             var channel = GrpcChannel.ForAddress(personalDataGrpcServiceUrl);

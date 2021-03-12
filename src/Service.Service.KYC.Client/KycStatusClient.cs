@@ -23,8 +23,8 @@ namespace Service.Service.KYC.Client
         public IKycStatusResponse GetClientKycStatus(IKycStatusRequest request)
         {
             var existingEntity = _readerKycStatuses.Get(
-                KycStatusNoSqlEntity.GeneratePartitionKey(request.UserId),
-                KycStatusNoSqlEntity.GenerateRowKey(request.UserId));
+                KycStatusNoSqlEntity.GeneratePartitionKey(request.ClientId),
+                KycStatusNoSqlEntity.GenerateRowKey(request.ClientId));
             if (existingEntity != null)
             {
                 return new KycStatusResponse()
@@ -34,7 +34,7 @@ namespace Service.Service.KYC.Client
                 };
             }
 
-            var entity = _kycStatusService.GetKycStatusAsync(new KycStatusRequest() {UserId = request.UserId}).Result;
+            var entity = _kycStatusService.GetKycStatusAsync(new KycStatusRequest() {ClientId = request.ClientId}).Result;
             return entity;
         }
 

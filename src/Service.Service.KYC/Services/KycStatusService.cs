@@ -23,27 +23,28 @@ namespace Service.Service.KYC.Services
 
         public async ValueTask<KycStatusResponse> GetKycStatusAsync(KycStatusRequest request)
         {
-            var personalDataResponse = await _personalDataServiceGrpc.GetByIdAsync(request.UserId);
+            var personalDataResponse = await _personalDataServiceGrpc.GetByIdAsync(request.ClientId);
 
             if (personalDataResponse.PersonalData == null)
             {
-                return new KycStatusResponse();
+                return new KycStatusResponse()
+                {
+                    BrokerId = request.BrokerId,
+                    ClientId = request.ClientId,
+                    Status = KycStatus.NotVerified
+                };
             }
 
-            var kycModel = new KycModel()
-            {
-                ClientId = personalDataResponse.PersonalData.Id,
-                Status = KycStatusMapper.MapPersonalDataStatusToKycStatus(personalDataResponse.PersonalData.KYC)
-            };
+            var kycModel = new KycModel(
+                Program.Settings.DefaultBrokerId,
+                personalDataResponse.PersonalData.Id,
+                KycStatusMapper.MapPersonalDataStatusToKycStatus(personalDataResponse.PersonalData.KYC));
+            
 
             var entity = KycStatusNoSqlEntity.Create(kycModel);
             await _myNoSqlWriter.InsertOrReplaceAsync(entity);
 
-            return new KycStatusResponse()
-            {
-                ClientId = kycModel.ClientId,
-                Status = kycModel.Status
-            };
+            return new KycStatusResponse(kycModel.BrokerId, kycModel.ClientId, kycModel.Status);
         }
     }
 }

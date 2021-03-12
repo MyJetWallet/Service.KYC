@@ -12,7 +12,6 @@
     <PackageReference Include="JetBrains.Annotations" Version="2020.3.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
-    <PackageReference Include="MyJetWallet.Domain.ServiceBus" Version="1.0.6" />
     <PackageReference Include="MyJetWallet.Sdk.GrpcMetrics" Version="1.0.0" />
     <PackageReference Include="MyJetWallet.Sdk.GrpcSchema" Version="1.0.5" />
     <PackageReference Include="MyJetWallet.Sdk.Service" Version="1.0.8" />
@@ -22,8 +21,8 @@
     <PackageReference Include="protobuf-net.Grpc.AspNetCore" Version="1.0.147" />
     <PackageReference Include="SimpleTrading.BaseMetrics" Version="1.0.3" />
     <PackageReference Include="SimpleTrading.PersonalData.Grpc" Version="1.0.37" />
-    <PackageReference Include="SimpleTrading.ServiceBus" Version="3.0.0-rc7" />
-    <PackageReference Include="SimpleTrading.ServiceStatusReporterConnector" Version="1.0.6" />
+    <PackageReference Include="SimpleTrading.ServiceBus" Version="3.0.0-rc8" />
+    <PackageReference Include="SimpleTrading.ServiceStatusReporterConnector" Version="1.0.7" />
     <PackageReference Include="SimpleTrading.SettingsReader" Version="1.1.0" />
   </ItemGroup>
 

@@ -8,8 +8,12 @@ namespace Service.Service.KYC.Modules
     {
         protected override void Load(ContainerBuilder builder)
         {
-            PersonalDataFactory historyClientFactory = new PersonalDataFactory(Program.Settings.KycServiceUrl);
-            builder.RegisterInstance(historyClientFactory.GetPersonalDataServiceGrpc()).As<IPersonalDataServiceGrpc>().SingleInstance();
+            PersonalDataClientFactory historyClientClientFactory = new PersonalDataClientFactory(Program.Settings.KycServiceUrl);
+            
+            builder
+                .RegisterInstance(historyClientClientFactory.GetPersonalDataServiceGrpc())
+                .As<IPersonalDataServiceGrpc>()
+                .SingleInstance();
         }
     }
 }

@@ -32,11 +32,10 @@ namespace Service.Service.KYC
         {
             _myNoSqlClient = new MyNoSqlTcpClient(
                 () => SettingsReader.ReadSettings<SettingsModel>(Program.SettingsFileName).MyNoSqlWriterUrl,
-                ApplicationEnvironment.HostName ??
-                $"{ApplicationEnvironment.AppName}:{ApplicationEnvironment.AppVersion}");
+                ApplicationEnvironment.HostName ?? $"{ApplicationEnvironment.AppName}:{ApplicationEnvironment.AppVersion}");
 
             _serviceBusClient = new MyServiceBusTcpClient(Program.ReloadedSettings(model => model.ServiceBusUrl),
-                ApplicationEnvironment.HostName);
+                ApplicationEnvironment.HostName ?? $"{ApplicationEnvironment.AppName}:{ApplicationEnvironment.AppVersion}");
         }
 
         public void ConfigureServices(IServiceCollection services)

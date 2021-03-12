@@ -16,5 +16,8 @@ namespace Service.Service.KYC.Settings
         
         [YamlProperty("Service.KYC.ServiceBusUrl")]
         public string ServiceBusUrl { get; set; }
+
+        [YamlProperty("Service.KYC.DefaultBrokerId")]
+        public string DefaultBrokerId { get; set; }
     }
 }

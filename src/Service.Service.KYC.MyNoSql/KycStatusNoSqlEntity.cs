@@ -7,7 +7,7 @@ namespace Service.Service.KYC.MyNoSql
     {
         public const string TableName = "myjetwallet-kyc-statuses";
 
-        public static string GeneratePartitionKey(string clientId) => $"client:{clientId}";
+        public static string GeneratePartitionKey(string brokerId) => $"broker:{brokerId}";
         public static string GenerateRowKey(string clientId) => clientId;
 
         public static KycStatusNoSqlEntity Create(IKycModel kycModel)
@@ -17,10 +17,12 @@ namespace Service.Service.KYC.MyNoSql
                 PartitionKey = GeneratePartitionKey(kycModel.ClientId),
                 RowKey = GenerateRowKey(kycModel.ClientId),
                 ClientId = kycModel.ClientId,
-                Status = kycModel.Status
+                Status = kycModel.Status,
+                BrokerId = kycModel.BrokerId
             };
         }
 
+        public string BrokerId { get; set; }
         public string ClientId { get; set; }
         public KycStatus Status { get; set; }
     }
