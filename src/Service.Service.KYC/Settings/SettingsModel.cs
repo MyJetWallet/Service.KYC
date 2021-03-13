@@ -5,19 +5,19 @@ namespace Service.Service.KYC.Settings
     [YamlAttributesOnly]
     public class SettingsModel
     {
-        [YamlProperty("Service.KYC.SeqServiceUrl")]
+        [YamlProperty("KYC.SeqServiceUrl")]
         public string SeqServiceUrl { get; set; }
         
-        [YamlProperty("Service.KYC.KycServiceUrl")]
+        [YamlProperty("KYC.KycServiceUrl")]
         public string KycServiceUrl { get; set; }
         
-        [YamlProperty("Service.KYC.MyNoSqlWriterUrl")]
+        [YamlProperty("KYC.MyNoSqlWriterUrl")]
         public string MyNoSqlWriterUrl { get; set; }
         
-        [YamlProperty("Service.KYC.ServiceBusUrl")]
+        [YamlProperty("KYC.ServiceBusUrl")]
         public string ServiceBusUrl { get; set; }
 
-        [YamlProperty("Service.KYC.DefaultBrokerId")]
+        [YamlProperty("KYC.DefaultBrokerId")]
         public string DefaultBrokerId { get; set; }
     }
 }
