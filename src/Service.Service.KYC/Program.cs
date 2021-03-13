@@ -36,7 +36,7 @@ namespace Service.Service.KYC
 
             Settings = SettingsReader.ReadSettings<SettingsModel>(SettingsFileName);
 
-            using var loggerFactory = LogConfigurator.Configure("MyJetWallet", null);
+            using var loggerFactory = LogConfigurator.Configure("MyJetWallet", Settings.SeqServiceUrl);
 
             var logger = loggerFactory.CreateLogger<Program>();
 
