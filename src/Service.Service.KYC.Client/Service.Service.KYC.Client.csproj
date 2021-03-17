@@ -7,7 +7,7 @@
   <ItemGroup>
     <ProjectReference PrivateAssets="All" Include="..\Service.Service.KYC.Domain.Models\Service.Service.KYC.Domain.Models.csproj" />
     <ProjectReference PrivateAssets="All" Include="..\Service.Service.KYC.Grpc\Service.Service.KYC.Grpc.csproj" />
-    <ProjectReference Include="..\Service.Service.KYC.MyNoSql\Service.Service.KYC.MyNoSql.csproj" />
+    <ProjectReference PrivateAssets="All" Include="..\Service.Service.KYC.MyNoSql\Service.Service.KYC.MyNoSql.csproj" />
   </ItemGroup>
 
   <ItemGroup>
